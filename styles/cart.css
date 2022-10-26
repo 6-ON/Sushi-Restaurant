@@ -1,0 +1,26 @@
+.cat-chip {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 160px;
+    height: 80px;
+    background: #FFFFFF;
+    border: 1px solid #EDEEF2;
+    border-radius: 16px;
+}
+.categories {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+.cat-chip *{
+    width: fit-content;
+}
+.cat-chip-selected {
+    color: #4E60FF;
+    background: #F3F4FF;
+    border: 2px solid #4E60FF;
+}
