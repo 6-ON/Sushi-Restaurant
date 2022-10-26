@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+html,
+body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 400;
+}
+
+
+
+.deals {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* components  */
+.counter {
+    border-radius: 45px;
+    padding: 5px 10px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+    border: 4.5px solid #F5EFE8;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #2B2B43;
+}
+
+.counter i {
+    padding: 10px;
+    background-color: #EDEEF2;
+    border-radius: 40%;
+}
+
+
+.deal-card {
+    font-family: 'Nunito', sans-serif;
+    width: 540px;
+    height: 188px;
+    background: #F3F4FF;
+    border-radius: 16px;
+    display: flex;
+}
+
+.deal-card .card-desc {
+    width: 100%;
+    padding: 24px 0px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.deal-card .card-desc .top {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.deal-card div * {
+    margin: 0px;
+}
+
+.deal-card .card-subject {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.deal-card .card-subtitle {
+
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.deal-card .off-percent {
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.deal-card-alt {
+    background: #FFF3ED;
+}
+
+.text-alt {
+    color: #FD6D22;
+}
+
+.text-primary {
+    color: #4E60FF;
+}
+
+/* end component */
+
+
+/* footer  */
+
+footer {
+    margin: 0px;
+    padding: 0 25px;
+    padding-bottom: 10px;
+    background: #222;
+    height: fit-content;
+}
+
+.c-row {
+    color: #F5EFE8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+footer .logo-area {
+    padding: 60px 50px;
+    width: fit-content;
+    background-color: #F5EFE8;
+    border-radius: 0px 0px 50px 50px;
+}
+
+footer .logo-area img {
+    width: 128px;
+}
+
+footer .c-row i {
+    margin-right: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+footer .c-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+footer .c-title div {
+    border-radius: 5px;
+    margin: 0px;
+    background: #4E60FF;
+    width: 70%;
+    height: 5px;
+}
+
+.input-squared {
+    border: 0px;
+    outline: 0px;
+    box-shadow: none;
+    border-radius: 0px;
+    width: 400px;
+    height: 35px;
+
+}
+
+.input-squared:focus {
+    border: 0px;
+    outline: 0px;
+    box-shadow: none;
+}
+
+footer .newsletter {
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .socials {
+    justify-content: center;
+    gap: 20px;
+    scale: 1.5;
+    display: flex;
+    color:#fff ;
+}
+
+.btn-pr {
+    background: #4E60FF;
+    color: white;
+    box-shadow: 0px 8px 20px rgba(78, 96, 255, 0.16);
+    border-radius: 8px;
+    border: 0px;
+    outline: 0px;
+    padding: 12px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+footer hr {
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
+/* style in phone  */
+@media (max-width:620px) {
+    footer > div {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .btn-pr {
+        width: 114px;
+        height: 40px;
+        align-self: center;
+    }
+}

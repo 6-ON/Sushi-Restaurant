@@ -1,0 +1,146 @@
+
+/* whole hero section style */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+}
+
+/* hero meal  */
+.hero-section .meal {
+    overflow: hidden;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 50%;
+}
+
+ /* table */
+.hero-section .meal .table {
+    border-radius: 50%;
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -5%;
+    right: -40%;
+
+}
+/* end table */
+
+/* .dish */
+.hero-section .meal .dish {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0px;
+    width: 480px;
+    height: 480px;
+}
+
+/* end dish  */
+
+
+/* end hero meal  */
+
+
+
+/* navbar style  */
+
+.c-navbar {
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 50px;
+    gap: 150px;
+    width: fit-content;
+}
+
+.c-navbar .logo {
+    width: 120px;
+    height: 39px;
+}
+
+.c-navbar .c-navbar-nav ul {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 30px;
+    list-style: none;
+}
+
+.c-navbar .c-navbar-nav ul a {
+    color: black;
+    text-decoration: none;
+}
+
+/* end .navbar */
+
+/* hero content */
+
+.hero-section .hero-content {
+    width:420px;
+    margin-left: 60px;
+}
+
+.hero-section .hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+}
+
+.hero-section .hero-content h1 span {
+    font-weight: 300;
+    display: block;
+
+}
+
+.hero-section .hero-content h3 span {
+    font-size: 16px;
+    font-weight: 600;
+}
+.hero-section .hero-content h3 {
+
+    font-weight: 300;
+    font-size: 16px;
+
+}
+
+
+.hero-section .order-area {
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.hero-section .order-area a{
+    font-weight: 400;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff ;
+    border-radius: 50px;
+    padding: 10px 30px;
+    background: #4E60FF;
+    display: flex;
+    align-items: center;
+}
+.hero-section .order-area a svg {
+    padding: 2px;
+    background-color: #fff;
+    color: #4E60FF;
+    border-radius: 50%;
+}
+.hero-section .order-result {
+    margin-left: 60px;
+    font-size:40px;
+}
+
+.hero-section .order-result span {
+    font-weight: bold;
+}
+
+/* end hero content */
+
+
