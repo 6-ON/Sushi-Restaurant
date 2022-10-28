@@ -36,6 +36,7 @@ body {
 }
 
 .counter i {
+    cursor: pointer;
     padding: 10px;
     background-color: #EDEEF2;
     border-radius: 40%;

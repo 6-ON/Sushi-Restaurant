@@ -1,0 +1,42 @@
+[
+    {
+        "id": "prod001",
+        "img": "./Assets/image/sushi-1.jpg",
+        "name": "Dragon",
+        "price": 43.9,
+        "cat": 0,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod002",
+        "img": "./Assets/image/sushi-1.jpg",
+        "name": "Volcan Holl",
+        "price": 50.9,
+        "cat": 0,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod003",
+        "img": "./Assets/image/sushi-1.jpg",
+        "name": "Sushi Roll",
+        "price": 50.9,
+        "cat": 0,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod004",
+        "img": "./Assets/image/sushi-1.jpg",
+        "name": "Fresh Roll",
+        "price": 50.9,
+        "cat": 0,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod005",
+        "img": "./Assets/image/sushi-1.jpg",
+        "name": "Tigre Roll",
+        "price": 50.9,
+        "cat": 0,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    }
+]
