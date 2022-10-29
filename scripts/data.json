@@ -9,7 +9,7 @@
     },
     {
         "id": "prod002",
-        "img": "./Assets/image/sushi-1.jpg",
+        "img": "./Assets/image/sushi-2.jpg",
         "name": "Volcan Holl",
         "price": 50.9,
         "cat": 0,
@@ -17,7 +17,7 @@
     },
     {
         "id": "prod003",
-        "img": "./Assets/image/sushi-1.jpg",
+        "img": "./Assets/image/sushi-3.jpg",
         "name": "Sushi Roll",
         "price": 50.9,
         "cat": 0,
@@ -25,7 +25,7 @@
     },
     {
         "id": "prod004",
-        "img": "./Assets/image/sushi-1.jpg",
+        "img": "./Assets/image/sushi-4.jpg",
         "name": "Fresh Roll",
         "price": 50.9,
         "cat": 0,
@@ -33,10 +33,162 @@
     },
     {
         "id": "prod005",
-        "img": "./Assets/image/sushi-1.jpg",
+        "img": "./Assets/image/sushi-5.jpg",
         "name": "Tigre Roll",
         "price": 50.9,
         "cat": 0,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod006",
+        "img": "./Assets/image/seafood-1.jpg",
+        "name": "Fried Shrimp",
+        "price": 30.5,
+        "cat": 1,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod007",
+        "img": "./Assets/image/seafood-2.jpg",
+        "name": "Shrimp Scampi",
+        "price": 9.99,
+        "cat": 1,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod008",
+        "img": "./Assets/image/seafood-3.jpg",
+        "name": "Stuffed Crab",
+        "price": 19.9,
+        "cat": 1,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod009",
+        "img": "./Assets/image/seafood-4.jpg",
+        "name": "Classic Shrimp",
+        "price": 29.9,
+        "cat": 1,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod010",
+        "img": "./Assets/image/seafood-5.jpg",
+        "name": "Fried Tona",
+        "price": 39.9,
+        "cat": 2,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod011",
+        "img": "./Assets/image/salade-1.jpg",
+        "name": "Fried Shrimp",
+        "price": 30.5,
+        "cat": 2,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod012",
+        "img": "./Assets/image/salade-2.jpg",
+        "name": "Shrimp Scampi",
+        "price": 9.99,
+        "cat": 2,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod013",
+        "img": "./Assets/image/salade-3.jpg",
+        "name": "Stuffed Crab",
+        "price": 19.9,
+        "cat": 2,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod014",
+        "img": "./Assets/image/salade-4.jpg",
+        "name": "Classic Shrimp",
+        "price": 29.9,
+        "cat": 2,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod015",
+        "img": "./Assets/image/salade-5.jpg",
+        "name": "Tigre Roll",
+        "price": 50.9,
+        "cat": 2,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod016",
+        "img": "./Assets/image/sushi-1.jpg",
+        "name": "Dragon",
+        "price": 43.9,
+        "cat": 3,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod017",
+        "img": "./Assets/image/sushi-2.jpg",
+        "name": "Volcan Holl",
+        "price": 50.9,
+        "cat": 3,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod018",
+        "img": "./Assets/image/sushi-3.jpg",
+        "name": "Sushi Roll",
+        "price": 50.9,
+        "cat": 3,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod019",
+        "img": "./Assets/image/sushi-4.jpg",
+        "name": "Fresh Roll",
+        "price": 50.9,
+        "cat": 3,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod019",
+        "img": "./Assets/image/sushi-5.jpg",
+        "name": "Tigre Roll",
+        "price": 50.9,
+        "cat": 3,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod020",
+        "img": "./Assets/image/seafood-1.jpg",
+        "name": "Fried Shrimp",
+        "price": 30.5,
+        "cat": 4,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod007",
+        "img": "./Assets/image/seafood-2.jpg",
+        "name": "Shrimp Scampi",
+        "price": 9.99,
+        "cat": 4,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod008",
+        "img": "./Assets/image/seafood-3.jpg",
+        "name": "Stuffed Crab",
+        "price": 19.9,
+        "cat": 4,
+        "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        "id": "prod009",
+        "img": "./Assets/image/seafood-4.jpg",
+        "name": "Classic Shrimp",
+        "price": 29.9,
+        "cat": 4,
         "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit."
     }
 ]
