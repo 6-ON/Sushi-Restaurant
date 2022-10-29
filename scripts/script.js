@@ -62,21 +62,20 @@ for (const cat of categories.children) {
     })
 }
 
-let jsonData = []
+let jsonData = {}
 
 
 
-fetch('./scripts/data.json')
+fetch('./scripts/data1.json')
     .then((response) => response.json())
-    .then((json) => json.forEach((item) => {
-        jsonData.push(item)
-    })).then(() => {
+    .then((json) => jsonData=json).then(() => {
+        // console.log(jsonData)
+        for(const category in jsonData){
+            jsonData[category].forEach((item)=>{
+                prodGrid.innerHTML += productTemplate(item)
+            })
+        }
 
-        jsonData.forEach((item) => {
-
-            // cartItems.innerHTML += cartItemTemplate(item)
-            prodGrid.innerHTML += productTemplate(item)
-        })
     }
 
     )
@@ -86,21 +85,23 @@ document.addEventListener('click', function (e) {
     }
     else if (e.target.classList.contains('add-prod')) {
         let selectedId = e.target.parentElement.parentElement.id
-        jsonData.forEach((item) => {
-            if (item.id == selectedId) {
-                let existed = cartItems.querySelector(`#${selectedId}_cart`)
-                if (existed) {
-                    console.log("already exists")
-                    let qtty = existed.querySelector(".counter-count")
-                    qtty.textContent = eval(qtty.textContent + "+1")
-                } else {
-                    console.log("added")
-                    cartItems.innerHTML += cartItemTemplate(item)
+
+        for(const category in jsonData){
+            jsonData[category].forEach((item)=>{
+                if (item.id == selectedId) {
+                    let existed = cartItems.querySelector(`#${selectedId}_cart`)
+                    if (existed) {
+                        console.log("already exists")
+                        let qtty = existed.querySelector(".counter-count")
+                        qtty.textContent = eval(qtty.textContent + "+1")
+                    } else {
+                        console.log("added")
+                        cartItems.innerHTML += cartItemTemplate(item)
+                    }
+    
                 }
-
-            }
-        })
-
+            })
+        }
 
     } else if (e.target.id == "btn-validate") {
         if (cartItems.childElementCount==0) {
@@ -128,6 +129,5 @@ document.addEventListener('click', function (e) {
 function clearCart() {
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
-
     }
 }
