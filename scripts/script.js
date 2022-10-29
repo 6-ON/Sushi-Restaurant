@@ -18,7 +18,7 @@ function cartItemTemplate({ id, name, price, img }) {
     <img src="${img}"></img>
     <div>
         <strong>${name}</strong>
-        <div><span>Price:</span><strong>${price}$</strong></div>
+        <div><span>Price:</span><strong class="item-price">${price}$</strong></div>
     </div>
     <div class="op-item">
         <div class="counter counter-small">
@@ -80,39 +80,54 @@ fetch('./scripts/data.json')
     }
 
     )
-
-// function ContainsId(id,parent) {
-//     for (const child of parent.children) {
-//         if (child.id == id) {
-//                 return true
-//         }
-//     }    
-//     return false
-// }
-
-
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('rm-item')) {
         e.target.parentElement.parentElement.remove()
     }
     else if (e.target.classList.contains('add-prod')) {
         let selectedId = e.target.parentElement.parentElement.id
-        jsonData.forEach((item)=> {
-            if(item.id==selectedId){
+        jsonData.forEach((item) => {
+            if (item.id == selectedId) {
                 let existed = cartItems.querySelector(`#${selectedId}_cart`)
                 if (existed) {
                     console.log("already exists")
                     let qtty = existed.querySelector(".counter-count")
-                    qtty.textContent = eval(qtty.textContent+"+1")
-                }else{
+                    qtty.textContent = eval(qtty.textContent + "+1")
+                } else {
                     console.log("added")
                     cartItems.innerHTML += cartItemTemplate(item)
                 }
 
             }
         })
-        console.log(selectedId);
 
+
+    } else if (e.target.id == "btn-validate") {
+        if (cartItems.childElementCount==0) {
+            alert("empty")
+        } else {
+            let res = "0.00"
+            console.log(cartItems.childNodes)
+            cartItems.childNodes.forEach((item) => {
+                let qtty = item.querySelector(".counter-count").textContent
+                let price = parseFloat(item.querySelector(".item-price").textContent)
+                res = eval( res + `+ ${qtty} * ${price}`)
+                
+            })
+            alert(res)
+            clearCart()
+        }
+
+    } else if (e.target.id == "btn-reset") {
+        clearCart()
     }
 
+
 })
+
+function clearCart() {
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+
+    }
+}
