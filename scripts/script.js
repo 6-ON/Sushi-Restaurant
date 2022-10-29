@@ -1,4 +1,4 @@
-function productTemplate({ id,name, price, desc, img }) {
+function productTemplate({ id, name, price, desc, img }) {
     return `<div class="product-card" id="${id}" >
     <div class="img-mask">
         <img src="${img}" alt="" srcset="">
@@ -13,8 +13,8 @@ function productTemplate({ id,name, price, desc, img }) {
     </div>
     </div>`
 }
-function cartItemTemplate({id, name, price, img }) {
-    return `<div class="cart-item id="${id}_cart">
+function cartItemTemplate({ id, name, price, img }) {
+    return `<div class="cart-item " id="${id}_cart">
     <img src="${img}"></img>
     <div>
         <strong>${name}</strong>
@@ -62,22 +62,57 @@ for (const cat of categories.children) {
     })
 }
 
+let jsonData = []
 
 
 
 fetch('./scripts/data.json')
     .then((response) => response.json())
-    .then((json) => json.forEach(element => {
-        cartItems.innerHTML += cartItemTemplate(element)
-        prodGrid.innerHTML += productTemplate(element)
-    }))
+    .then((json) => json.forEach((item) => {
+        jsonData.push(item)
+    })).then(() => {
+
+        jsonData.forEach((item) => {
+
+            // cartItems.innerHTML += cartItemTemplate(item)
+            prodGrid.innerHTML += productTemplate(item)
+        })
+    }
+
+    )
+
+// function ContainsId(id,parent) {
+//     for (const child of parent.children) {
+//         if (child.id == id) {
+//                 return true
+//         }
+//     }    
+//     return false
+// }
+
 
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('rm-item')) {
         e.target.parentElement.parentElement.remove()
     }
     else if (e.target.classList.contains('add-prod')) {
-        
+        let selectedId = e.target.parentElement.parentElement.id
+        jsonData.forEach((item)=> {
+            if(item.id==selectedId){
+                let existed = cartItems.querySelector(`#${selectedId}_cart`)
+                if (existed) {
+                    console.log("already exists")
+                    let qtty = existed.querySelector(".counter-count")
+                    qtty.textContent = eval(qtty.textContent+"+1")
+                }else{
+                    console.log("added")
+                    cartItems.innerHTML += cartItemTemplate(item)
+                }
+
+            }
+        })
+        console.log(selectedId);
+
     }
 
 })
