@@ -247,7 +247,6 @@ footer hr {
 .popup .popup-msg {
     position: absolute;
     width: 50%;
-    height: 30%;
     background-color: #fff;
     top: 50%;
     left: 50%;
@@ -258,11 +257,12 @@ footer hr {
 }
 .popup .popup-msg h1 {
     color: #4E60FF;
+    margin-bottom: 40px;
 }
 .popup .popup-msg span {
     font-weight: 500;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 
