@@ -54,7 +54,6 @@ function reloadProducts() {
         loadAllProducts()
     } else {
         for (const category of Object.keys(cats).filter((cat)=>{return cats[cat]===true})) {
-            console.log(category)
             loadProductsCategory(category)
         }
     }
@@ -78,7 +77,6 @@ function loadAllProducts() {
 fetch('./scripts/data1.json')
     .then((response) => response.json())
     .then((json) => jsonData = json).then(() => {
-        // console.log(jsonData)
         loadAllProducts()
 
     }).then(() => {
@@ -94,7 +92,6 @@ fetch('./scripts/data1.json')
                     cats[cat.id] = true
                     cat.className += selected
                 }
-                console.log(cat.id)
                 reloadProducts()
 
             })
@@ -114,11 +111,9 @@ document.addEventListener('click', function (e) {
                 if (item.id == selectedId) {
                     let existed = cartItems.querySelector(`#${selectedId}_cart`)
                     if (existed) {
-                        console.log("already exists")
                         let qtty = existed.querySelector(".counter-count")
                         qtty.textContent = eval(qtty.textContent + "+1")
                     } else {
-                        console.log("added")
                         cartItems.innerHTML += cartItemTemplate(item)
                     }
 
@@ -131,7 +126,6 @@ document.addEventListener('click', function (e) {
             alert("empty")
         } else {
             let res = "0.00"
-            console.log(cartItems.childNodes)
             cartItems.childNodes.forEach((item) => {
                 let qtty = item.querySelector(".counter-count").textContent
                 let price = parseFloat(item.querySelector(".item-price").textContent)
