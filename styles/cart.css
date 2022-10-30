@@ -204,6 +204,9 @@
     .cart-items {
         width: 80%;
     }
+    .categories {
+        flex-wrap: wrap;
+    }
 
 }
 
