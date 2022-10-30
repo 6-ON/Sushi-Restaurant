@@ -13,6 +13,7 @@ function productTemplate({ id, name, price, desc, img }) {
     </div>
     </div>`
 }
+
 function cartItemTemplate({ id, name, price, img }) {
     return `<div class="cart-item " id="${id}_cart">
     <img src="${img}"></img>
@@ -33,6 +34,15 @@ function cartItemTemplate({ id, name, price, img }) {
     </div>`
 }
 
+function popupTemplate(price) {
+    return `<div class="popup-msg">
+            <h1>Result</h1>
+            <span class="final-price">${price}</span>
+            <button class="btn-pr" id="ok-btn">OK</button>
+            <button class="btn-pr btn-alt" id="cancel-btn">Cancel</button>
+            </div>`
+}
+
 let cats = {
     "cat-0": false,
     "cat-1": false,
@@ -45,15 +55,33 @@ let cats = {
 
 let prodGrid = document.querySelector(".prod-grid")
 let cartItems = document.querySelector(".cart-items")
-
 let categories = document.querySelector(".categories")
 
 
+function showPopup(price) {
+    let popupElement = document.createElement("div")
+    popupElement.className = "popup"
+    popupElement.innerHTML = popupTemplate(price)
+    document.body.appendChild(popupElement)
+
+    let popup = document.querySelector(".popup")
+
+    popup.addEventListener("click", (e) => {
+        if (e.target.className == "popup" || e.target.id == "ok-btn" || e.target.id == "cancel-btn") {
+            popup.remove()
+            clearChilds(cartItems)
+        }
+    })
+
+}
+
+
+
 function reloadProducts() {
-    if (new Set(Object.values(cats)).size == 1 ) {
+    if (new Set(Object.values(cats)).size == 1) {
         loadAllProducts()
     } else {
-        for (const category of Object.keys(cats).filter((cat)=>{return cats[cat]===true})) {
+        for (const category of Object.keys(cats).filter((cat) => { return cats[cat] === true })) {
             loadProductsCategory(category)
         }
     }
@@ -68,6 +96,7 @@ function loadProductsCategory(category) {
         prodGrid.innerHTML += productTemplate(item)
     })
 }
+
 function loadAllProducts() {
     for (const category in jsonData) {
         loadProductsCategory(category)
@@ -99,11 +128,10 @@ fetch('./scripts/data1.json')
     })
 
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', function(e) {
     if (e.target.classList.contains('rm-item')) {
         e.target.parentElement.parentElement.remove()
-    }
-    else if (e.target.classList.contains('add-prod')) {
+    } else if (e.target.classList.contains('add-prod')) {
         let selectedId = e.target.parentElement.parentElement.id
 
         for (const category in jsonData) {
@@ -123,7 +151,8 @@ document.addEventListener('click', function (e) {
 
     } else if (e.target.id == "btn-validate") {
         if (cartItems.childElementCount == 0) {
-            alert("empty")
+            showPopup("Your cart is Empty")
+            
         } else {
             let res = "0.00"
             cartItems.childNodes.forEach((item) => {
@@ -132,8 +161,7 @@ document.addEventListener('click', function (e) {
                 res = eval(res + `+ ${qtty} * ${price}`)
 
             })
-            alert(res)
-            clearChilds(cartItems)
+            showPopup(res+"$")
         }
 
     } else if (e.target.id == "btn-reset") {
