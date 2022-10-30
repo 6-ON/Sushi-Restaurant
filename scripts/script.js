@@ -34,11 +34,11 @@ function cartItemTemplate({ id, name, price, img }) {
 }
 
 let cats = {
-    sushi: false,
-    sea_food: false,
-    salade: false,
-    soupes: false,
-    dessert: false
+    "cat-0": false,
+    "cat-1": false,
+    "cat-2": false,
+    "cat-3": false,
+    "cat-4": false
 }
 
 
@@ -49,36 +49,61 @@ let cartItems = document.querySelector(".cart-items")
 let categories = document.querySelector(".categories")
 
 
+let selectedCategories = []
 
-for (const cat of categories.children) {
-    cat.addEventListener("click", (e) => {
-        let selected = " cat-chip-selected"
-        if (cat.className.endsWith(selected)) {
-            cat.className = cat.className.replace(selected, '')
-        } else {
-            cat.className += selected
+function reloadProducts() {
+    if (selectedCategories.length) {
+        for (const category of selectedCategories) {
+            loadProductsCategory(category)
         }
-
-    })
+    } else {
+        loadAllProducts()
+    }
 }
+
+
 
 let jsonData = {}
 
-
+function loadProductsCategory(category) {
+    jsonData[category].forEach((item) => {
+        prodGrid.innerHTML += productTemplate(item)
+    })
+}
+function loadAllProducts() {
+    for (const category in jsonData) {
+        loadProductsCategory(category)
+    }
+}
 
 fetch('./scripts/data1.json')
     .then((response) => response.json())
-    .then((json) => jsonData=json).then(() => {
+    .then((json) => jsonData = json).then(() => {
         // console.log(jsonData)
-        for(const category in jsonData){
-            jsonData[category].forEach((item)=>{
-                prodGrid.innerHTML += productTemplate(item)
+        loadAllProducts()
+
+    }).then(() => {
+        for (const cat of categories.children) {
+            cat.addEventListener("click", (e) => {
+                let selected = " cat-chip-selected"
+                // console.log(prodGrid)
+                clearChilds(prodGrid)
+                if (cat.className.endsWith(selected)) {
+
+                    cat.className = cat.className.replace(selected, '')
+                    selectedCategories = selectedCategories.filter((cat) => {return cat != e.target.id})
+                } else {
+                    console.log(e.target.id)
+                    cat.className += selected
+                    selectedCategories.push(e.target.id)
+                }
+                reloadProducts()
+
             })
         }
+    })
 
-    }
 
-    )
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('rm-item')) {
         e.target.parentElement.parentElement.remove()
@@ -86,8 +111,8 @@ document.addEventListener('click', function (e) {
     else if (e.target.classList.contains('add-prod')) {
         let selectedId = e.target.parentElement.parentElement.id
 
-        for(const category in jsonData){
-            jsonData[category].forEach((item)=>{
+        for (const category in jsonData) {
+            jsonData[category].forEach((item) => {
                 if (item.id == selectedId) {
                     let existed = cartItems.querySelector(`#${selectedId}_cart`)
                     if (existed) {
@@ -98,13 +123,13 @@ document.addEventListener('click', function (e) {
                         console.log("added")
                         cartItems.innerHTML += cartItemTemplate(item)
                     }
-    
+
                 }
             })
         }
 
     } else if (e.target.id == "btn-validate") {
-        if (cartItems.childElementCount==0) {
+        if (cartItems.childElementCount == 0) {
             alert("empty")
         } else {
             let res = "0.00"
@@ -112,22 +137,21 @@ document.addEventListener('click', function (e) {
             cartItems.childNodes.forEach((item) => {
                 let qtty = item.querySelector(".counter-count").textContent
                 let price = parseFloat(item.querySelector(".item-price").textContent)
-                res = eval( res + `+ ${qtty} * ${price}`)
-                
+                res = eval(res + `+ ${qtty} * ${price}`)
+
             })
             alert(res)
-            clearCart()
+            clearChilds(cartItems)
         }
 
     } else if (e.target.id == "btn-reset") {
-        clearCart()
+        clearChilds(cartItems)
     }
-
 
 })
 
-function clearCart() {
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
+function clearChilds(parent) {
+    while (parent.hasChildNodes()) {
+        parent.removeChild(parent.firstChild)
     }
 }
