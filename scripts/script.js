@@ -49,15 +49,14 @@ let cartItems = document.querySelector(".cart-items")
 let categories = document.querySelector(".categories")
 
 
-let selectedCategories = []
-
 function reloadProducts() {
-    if (selectedCategories.length) {
-        for (const category of selectedCategories) {
+    if (new Set(Object.values(cats)).size == 1 ) {
+        loadAllProducts()
+    } else {
+        for (const category of Object.keys(cats).filter((cat)=>{return cats[cat]===true})) {
+            console.log(category)
             loadProductsCategory(category)
         }
-    } else {
-        loadAllProducts()
     }
 }
 
@@ -86,17 +85,16 @@ fetch('./scripts/data1.json')
         for (const cat of categories.children) {
             cat.addEventListener("click", (e) => {
                 let selected = " cat-chip-selected"
-                // console.log(prodGrid)
                 clearChilds(prodGrid)
                 if (cat.className.endsWith(selected)) {
 
                     cat.className = cat.className.replace(selected, '')
-                    selectedCategories = selectedCategories.filter((cat) => {return cat != e.target.id})
+                    cats[cat.id] = false
                 } else {
-                    console.log(e.target.id)
+                    cats[cat.id] = true
                     cat.className += selected
-                    selectedCategories.push(e.target.id)
                 }
+                console.log(cat.id)
                 reloadProducts()
 
             })
