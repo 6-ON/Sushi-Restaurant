@@ -253,6 +253,7 @@ footer .btn-pr {
 .popup .popup-msg {
     position: absolute;
     width: 50%;
+    min-width: fit-content;
     background-color: #fff;
     top: 50%;
     left: 50%;
@@ -271,33 +272,6 @@ footer .btn-pr {
     margin-bottom: 40px;    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* @media (min-width:920px) {
-    header {
-        margin-right: 400px !important;
-    }
-
-} */
 /* style in phone  */
 @media (max-width:620px) {
     footer > div {
