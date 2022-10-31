@@ -190,7 +190,7 @@ footer .c-title div {
     outline: 0px;
     box-shadow: none;
     border-radius: 0px;
-    width: 400px;
+    width: 70vw;
     height: 35px;
 
 }
@@ -205,6 +205,7 @@ footer .newsletter {
     font-weight: 200;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 footer .socials {
@@ -236,6 +237,9 @@ footer hr {
     border: none;
     border-bottom: 1px solid #fff;
 }
+footer .btn-pr {
+    max-width: 150px;
+}
 
 .popup {
     position: fixed;
@@ -261,7 +265,7 @@ footer hr {
     color: #4E60FF;
     margin-bottom: 40px;
 }
-.popup .popup-msg span {
+.popup .popup-msg .popup-msg-txt {
     font-weight: 500;
     display: block;
     margin-bottom: 40px;    
