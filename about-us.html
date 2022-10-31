@@ -8,16 +8,57 @@
     <title>About us</title>
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .about-container {
+            background: rgba(78, 96, 255, 0.16);
+            box-shadow: 0px 4px 25px rgba(78, 96, 255, 0.16);
+            backdrop-filter: blur(13px);
+            border-radius: 20px;
+        }
+
+        .chefs-container>h2 {
+            text-align: center;
+            color: #4E60FF;
+            font-weight: 700;
+        }
+
+        .chefs {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 0px;
+            gap: 50px;
+        }
+
+        .chef-card {
+            width: 300px;
+            height: 400px;
+            background: rgba(78, 96, 255, 0.16);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chef-card .img-mask {
+            background-color: blue;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .chef-card .img-mask img {
+            width: 100%;
+        }
+    </style>
 </head>
-<style>
-    .about-container {
-        background: rgba(78, 96, 255, 0.16);
-        box-shadow: 0px 4px 25px rgba(78, 96, 255, 0.16);
-        backdrop-filter: blur(13px);
-        border-radius: 20px;
-    }
-    
-</style>
 
 <body>
     <header class="container-fluid">
@@ -61,15 +102,47 @@
                     Title
                 </h3>
             </div>
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident illo, dolores ipsum consequuntur temporibus, modi odio nulla harum sunt enim non et? Officia quo quas porro, ratione libero sed?</p>
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident illo, dolores ipsum consequuntur temporibus, modi odio nulla harum sunt enim non et? Officia quo quas porro, ratione libero sed?</p>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident illo,
+                dolores ipsum consequuntur temporibus, modi odio nulla harum sunt enim non et? Officia quo quas porro,
+                ratione libero sed?</p>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident illo,
+                dolores ipsum consequuntur temporibus, modi odio nulla harum sunt enim non et? Officia quo quas porro,
+                ratione libero sed?</p>
             <div class=" d-flex justify-content-center">
                 <h3 class="mb-5 text-primary font-weight-bold">
                     Title
                 </h3>
             </div>
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident illo, dolores ipsum consequuntur temporibus, modi odio nulla harum sunt enim non et? Officia quo quas porro, ratione libero sed?</p>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident illo,
+                dolores ipsum consequuntur temporibus, modi odio nulla harum sunt enim non et? Officia quo quas porro,
+                ratione libero sed?</p>
         </div>
+    </div>
+    <div class="chefs-container">
+        <h2>Our Chefs</h2>
+        <section class="chefs">
+            <div class="chef-card">
+                <div class="img-mask"><img src="Assets/image/chef-1.jpg"></div>
+                <h2 class="chef-name m-0">Chef-name</h2>
+                <p class="chef-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae ducimus,
+                    exercitationem odit blanditiis culpa iure laboriosam fugit nesciunt laborum. Dolore nobis, odio
+                    iusto in nesciunt excepturi voluptate sed adipisci?</p>
+            </div>
+            <div class="chef-card">
+                <div class="img-mask"><img src="Assets/image/chef-1.jpg"></div>
+                <h2 class="chef-name m-0">Chef-name</h2>
+                <p class="chef-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae ducimus,
+                    exercitationem odit blanditiis culpa iure laboriosam fugit nesciunt laborum. Dolore nobis, odio
+                    iusto in nesciunt excepturi voluptate sed adipisci?</p>
+            </div>
+            <div class="chef-card">
+                <div class="img-mask"><img src="Assets/image/chef-1.jpg"></div>
+                <h2 class="chef-name m-0">Chef-name</h2>
+                <p class="chef-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae ducimus,
+                    exercitationem odit blanditiis culpa iure laboriosam fugit nesciunt laborum. Dolore nobis, odio
+                    iusto in nesciunt excepturi voluptate sed adipisci?</p>
+            </div>
+        </section>
     </div>
     <section class="deals mx-auto">
         <section class="deal-card">
@@ -93,6 +166,8 @@
             </div>
         </section>
     </section>
+
+
     <footer class="footer-section">
         <div class="c-row mb-50">
             <div class="logo-area">
