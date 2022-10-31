@@ -38,7 +38,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0px 10px;
-    gap: 10px;
 }
 
 .content-container .prod-grid {
@@ -127,6 +126,10 @@
 .content-container .cart-items {
     overflow-y: scroll;
     max-height: 400px;
+    width: 100%;
+}
+.content-container > section {
+    width: 100%;
 }
 .content-container .cart-items::-webkit-scrollbar {
     display: none;
