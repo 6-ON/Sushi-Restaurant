@@ -1,5 +1,8 @@
 function productTemplate({ id, name, price, desc, img }) {
-    return `<div class="product-card" id="${id}" >
+    let prod = document.createElement("div")
+    prod.className = "product-card"
+    prod.id = id
+    prod.innerHTML = `
     <div class="img-mask">
         <img src="${img}" alt="" srcset="">
     </div>
@@ -10,13 +13,16 @@ function productTemplate({ id, name, price, desc, img }) {
     <div class="prod-price">
         <strong>${price}$</strong>
         <i class="fa-regular fa-plus add-prod"></i>
-    </div>
     </div>`
+    return prod
 }
 
 function cartItemTemplate({ id, name, price, img }) {
-    return `<div class="cart-item " id="${id}_cart">
-    <img src="${img}"></img>
+    let item = document.createElement("div")
+    item.className = "cart-item"
+    item.id = id + "_cart"
+
+    item.innerHTML = `<img src="${img}"></img>
     <div>
         <strong>${name}</strong>
         <div><span>Price:</span><strong class="item-price">${price}$</strong></div>
@@ -30,11 +36,11 @@ function cartItemTemplate({ id, name, price, img }) {
         <div class="rm-item" >
             <i class="fa-solid fa-x text-danger"></i><span> Remove</span>
         </div>
-    </div>
     </div>`
+    return item
 }
 
-function popupTemplate(context,msg) {
+function popupTemplate(context, msg) {
     return `<div class="popup-msg">
             <h1>${context}</h1>
             <span class="popup-msg-txt">${msg}</span>
@@ -58,10 +64,10 @@ let cartItems = document.querySelector(".cart-items")
 let categories = document.querySelector(".categories")
 
 
-function showPopup(context,price) {
+function showPopup(context, price) {
     let popupElement = document.createElement("div")
     popupElement.className = "popup"
-    popupElement.innerHTML = popupTemplate(context,price)
+    popupElement.innerHTML = popupTemplate(context, price)
     document.body.appendChild(popupElement)
 
     let popup = document.querySelector(".popup")
@@ -93,7 +99,7 @@ let jsonData = {}
 
 function loadProductsCategory(category) {
     jsonData[category].forEach((item) => {
-        prodGrid.innerHTML += productTemplate(item)
+        prodGrid.appendChild(productTemplate(item))
     })
 }
 
@@ -103,34 +109,36 @@ function loadAllProducts() {
     }
 }
 
-// window.onload = 
+window.addEventListener("DOMContentLoaded", (e) => {
 
-fetch('./scripts/data1.json')
-    .then((response) => response.json())
-    .then((json) => jsonData = json).then(() => {
-        loadAllProducts()
+    fetch('./scripts/data1.json')
+        .then((response) => response.json())
+        .then((json) => jsonData = json).then(() => {
+            loadAllProducts()
 
-    }).then(() => {
-        for (const cat of categories.children) {
-            cat.addEventListener("click", (e) => {
-                let selected = " cat-chip-selected"
-                clearChilds(prodGrid)
-                if (cat.className.endsWith(selected)) {
+        }).then(() => {
+            for (const cat of categories.children) {
+                cat.addEventListener("click", (e) => {
+                    let selected = " cat-chip-selected"
+                    clearChilds(prodGrid)
+                    if (cat.className.endsWith(selected)) {
 
-                    cat.className = cat.className.replace(selected, '')
-                    cats[cat.id] = false
-                } else {
-                    cats[cat.id] = true
-                    cat.className += selected
-                }
-                reloadProducts()
+                        cat.className = cat.className.replace(selected, '')
+                        cats[cat.id] = false
+                    } else {
+                        cats[cat.id] = true
+                        cat.className += selected
+                    }
+                    reloadProducts()
 
-            })
-        }
-    })
+                })
+            }
+        })
+})
 
 
-document.addEventListener('click', function(e) {
+
+document.addEventListener('click', function (e) {
     if (e.target.classList.contains('rm-item')) {
         e.target.parentElement.parentElement.remove()
     } else if (e.target.classList.contains('add-prod')) {
@@ -144,7 +152,7 @@ document.addEventListener('click', function(e) {
                         let qtty = existed.querySelector(".counter-count")
                         qtty.textContent = eval(qtty.textContent + "+1")
                     } else {
-                        cartItems.innerHTML += cartItemTemplate(item)
+                        cartItems.appendChild(cartItemTemplate(item))
                     }
 
                 }
@@ -153,8 +161,8 @@ document.addEventListener('click', function(e) {
 
     } else if (e.target.id == "btn-validate") {
         if (cartItems.childElementCount == 0) {
-            showPopup("Result","Your cart is Empty")
-            
+            showPopup("Result", "Your cart is Empty")
+
         } else {
             let res = "0.00"
             cartItems.childNodes.forEach((item) => {
@@ -163,22 +171,22 @@ document.addEventListener('click', function(e) {
                 res = eval(res + `+ ${qtty} * ${price}`)
 
             })
-            showPopup("Result",res+"$")
+            showPopup("Result", res + "$")
         }
 
     } else if (e.target.id == "btn-reset") {
         clearChilds(cartItems)
-    }else if (e.target.id == "btn-send"){
-        e.preventDefault() 
+    } else if (e.target.id == "btn-send") {
+        e.preventDefault()
         let contactForm = this.querySelector("form#contact-form")
-        if(contactForm.checkValidity()){
+        if (contactForm.checkValidity()) {
 
-            showPopup("Notification","Your Message sent succssesfully !")
-        }else{
-            showPopup("Notification","Erorr check your informations !")
+            showPopup("Notification", "Your Message sent succssesfully !")
+        } else {
+            showPopup("Notification", "Erorr check your informations !")
         }
         contactForm.reset()
-        
+
     }
 
 })
