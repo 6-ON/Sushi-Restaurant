@@ -34,10 +34,10 @@ function cartItemTemplate({ id, name, price, img }) {
     </div>`
 }
 
-function popupTemplate(price) {
+function popupTemplate(context,msg) {
     return `<div class="popup-msg">
-            <h1>Result</h1>
-            <span class="final-price">${price}</span>
+            <h1>${context}</h1>
+            <span class="popup-msg-txt">${msg}</span>
             <button class="btn-pr" id="ok-btn">OK</button>
             <button class="btn-pr btn-alt" id="cancel-btn">Cancel</button>
             </div>`
@@ -58,10 +58,10 @@ let cartItems = document.querySelector(".cart-items")
 let categories = document.querySelector(".categories")
 
 
-function showPopup(price) {
+function showPopup(context,price) {
     let popupElement = document.createElement("div")
     popupElement.className = "popup"
-    popupElement.innerHTML = popupTemplate(price)
+    popupElement.innerHTML = popupTemplate(context,price)
     document.body.appendChild(popupElement)
 
     let popup = document.querySelector(".popup")
@@ -102,6 +102,8 @@ function loadAllProducts() {
         loadProductsCategory(category)
     }
 }
+
+// window.onload = 
 
 fetch('./scripts/data1.json')
     .then((response) => response.json())
@@ -151,7 +153,7 @@ document.addEventListener('click', function(e) {
 
     } else if (e.target.id == "btn-validate") {
         if (cartItems.childElementCount == 0) {
-            showPopup("Your cart is Empty")
+            showPopup("Result","Your cart is Empty")
             
         } else {
             let res = "0.00"
@@ -161,11 +163,22 @@ document.addEventListener('click', function(e) {
                 res = eval(res + `+ ${qtty} * ${price}`)
 
             })
-            showPopup(res+"$")
+            showPopup("Result",res+"$")
         }
 
     } else if (e.target.id == "btn-reset") {
         clearChilds(cartItems)
+    }else if (e.target.id == "btn-send"){
+        e.preventDefault() 
+        let contactForm = this.querySelector("form#contact-form")
+        if(contactForm.checkValidity()){
+
+            showPopup("Notification","Your Message sent succssesfully !")
+        }else{
+            showPopup("Notification","Erorr check your informations !")
+        }
+        contactForm.reset()
+        
     }
 
 })
